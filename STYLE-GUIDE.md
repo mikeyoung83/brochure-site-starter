@@ -140,7 +140,21 @@ fonts: [
 
 ---
 
-## 7. Components & patterns
+## 7. CMS (optional)
+
+*Claude: always ask this explicitly while filling out the site map above — don't skip it and don't assume. "Will any part of this site need to be edited after launch without touching code — a Projects/Gallery page, blog, team roster, testimonials, pricing list? If so, which sections?" Most brochure sites don't need this. If the answer is no, leave this section as "Not needed" and do nothing further — no `.pages.yml`, no CMS setup, no mention of it elsewhere. If yes, use the `pagescms` skill (`~/.claude/skills/pagescms/`) to draft `.pages.yml` and the matching `src/content.config.ts` entry for each section named below.*
+
+**Needed?** [Yes / No]
+
+**If yes, which sections and what's editable in each:**
+
+| Section | What's editable | Content type |
+|---|---|---|
+| [e.g. Projects] | [e.g. title, description, photo gallery, completion date] | [collection / file] |
+
+---
+
+## 8. Components & patterns
 
 - **Navbar**: [sticky vs static, transparent-over-hero vs solid, mobile menu style]
 - **Hero**: [text-only vs split with an image — see `src/components/Hero.astro`'s `visual` slot; headline + subhead + CTA count; alignment left vs center]
@@ -151,6 +165,6 @@ fonts: [
 
 ---
 
-## 8. Accessibility & performance notes
+## 9. Accessibility & performance notes
 *(anything beyond the global baseline in `~/.claude/CLAUDE.md` — most sites can leave this section as "no exceptions")*
 [e.g. specific contrast requirement, client accessibility mandate, target Lighthouse score]

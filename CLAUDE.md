@@ -31,7 +31,7 @@ it's writing final copy or scaffolding placeholder text.]
 ## Special integrations / exceptions
 [Anything that deviates from the global rules — e.g. "contact form uses
 Netlify Forms with a honeypot field," "this one needs an SSR adapter because
-of X," "client wants a blog via content collections." Leave blank if none.]
+of X," "Projects page uses Pages CMS — see .pages.yml." Leave blank if none.]
 
 ## Status
 [Not started / in progress / in client review / shipped — whatever's useful
