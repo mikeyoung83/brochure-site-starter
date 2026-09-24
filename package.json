@@ -5,13 +5,25 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro check && eslint . && astro build",
+    "preview": "astro preview",
+    "lint": "eslint .",
+    "typecheck": "astro check"
   },
   "dependencies": {
     "astro": "^6.0.0",
+    "@astrojs/sitemap": "^3.0.0",
     "@tailwindcss/vite": "^4.0.0",
     "tailwindcss": "^4.0.0",
-    "daisyui": "^5.0.0"
+    "daisyui": "^5.0.0",
+    "astro-seo": "^0.8.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^10.0.0",
+    "eslint-plugin-astro": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "^6.7.0",
+    "typescript": "^5.0.0"
   }
 }

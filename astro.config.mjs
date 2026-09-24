@@ -1,10 +1,13 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://example.com', // update per project
+  site: 'https://example.com', // update per project — required for the sitemap and for astro-seo's canonical URLs
   output: 'static', // no adapter needed for a brochure site on Netlify
+
+  integrations: [sitemap()],
 
   vite: {
     plugins: [tailwindcss()],

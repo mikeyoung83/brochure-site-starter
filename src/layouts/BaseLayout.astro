@@ -23,8 +23,16 @@
 //
 // That gives you `font-heading` and `font-sans` Tailwind utilities without
 // a naming collision with Astro's generated font variables.
+//
+// SEO: title and description are required props (enforced by `astro check`,
+// which is chained into `npm run build` — omit either and the build fails).
+// ogImage is optional; when omitted, no Open Graph image tags are rendered
+// rather than falling back to something broken. noindex is a rare escape
+// hatch for pages that shouldn't be indexed (a thank-you page, a staging
+// site) — defaults to indexed, same as astro-seo's own default.
 
 import { Font } from 'astro:assets';
+import { SEO } from 'astro-seo';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -56,6 +64,8 @@ interface Props {
   phone?: string;
   socialLinks?: SocialLink[];
   lang?: string;
+  ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -70,7 +80,14 @@ const {
   phone,
   socialLinks,
   lang = 'en',
+  ogImage,
+  noindex,
 } = Astro.props;
+
+const pageTitle = `${title} · ${siteName}`;
+const openGraph = ogImage
+  ? { basic: { title: pageTitle, type: 'website', image: ogImage } }
+  : undefined;
 ---
 
 <!doctype html>
@@ -79,8 +96,8 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="description" content={description} />
-    <title>{title} · {siteName}</title>
+
+    <SEO title={pageTitle} description={description} noindex={noindex} openGraph={openGraph} />
 
     <Font cssVariable="--font-heading-family" preload />
     <Font cssVariable="--font-body-family" preload />
