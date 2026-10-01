@@ -26,9 +26,11 @@ const currentPath = Astro.url.pathname;
 
 <header class="navbar border-b border-base-200 bg-base-100 px-4 lg:px-8">
   <div class="navbar-start gap-1">
-    <div class="dropdown lg:hidden">
-      <div tabindex="0" role="button" aria-label="Open menu" class="btn btn-ghost btn-square">
+    <details class="dropdown lg:hidden">
+      <summary class="btn btn-ghost btn-square">
+        <span class="sr-only">Open menu</span>
         <svg
+          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
           fill="none"
@@ -38,9 +40,8 @@ const currentPath = Astro.url.pathname;
         >
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-      </div>
+      </summary>
       <ul
-        tabindex="0"
         class="menu dropdown-content menu-sm z-1 mt-3 w-56 rounded-box bg-base-100 p-2 shadow"
       >
         {navItems.map((item) => (
@@ -58,7 +59,7 @@ const currentPath = Astro.url.pathname;
           </li>
         )}
       </ul>
-    </div>
+    </details>
 
     <a href="/" class="font-heading text-lg font-semibold">
       {siteName}

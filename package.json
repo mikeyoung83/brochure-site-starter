@@ -25,5 +25,11 @@
     "eslint-plugin-astro": "^3.1.0",
     "eslint-plugin-jsx-a11y": "^6.7.0",
     "typescript": "^5.0.0"
+  },
+  "overrides": {
+    "vite": "^7.0.0",
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    }
   }
 }
